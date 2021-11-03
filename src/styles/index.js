@@ -5,14 +5,30 @@ export const Container = styled.div`
     padding: 1rem 1.5rem;
 `
 
+export const ErrorHeading = styled.h1`
+    margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.2;
+`
+
+export const ErrorText = styled.h2`
+    margin-top: 0.5rem;
+    font-weight: 400;
+    padding: 0;
+    color: gray;
+    font-size: 0.9rem;
+`
+
 export const Heading = styled.h1`
     margin-top: 2rem;
     font-size: 1.6rem;
     line-height: 1.2;
-    font-weight: 400;
+    font-weight: 600;
+    text-align: center;
 `
 export const CustomLink = styled.a`
-    color: #7c4dff;
+    color: gray;
     font-weight: 400;
 `
 
@@ -28,10 +44,20 @@ export const Icon = styled.div`
 `
 
 export const SearchContainer = styled.div`
-    margi-top: 1.2rem;
-    display: inline-block;
-    position: relative;
-    width: 100%;
+    @media only screen and (max-width: 500px){
+        margin-top: 0.8rem;
+        display: block;
+        position: relative;
+        text-align: center;
+    }   
+    @media only screen and (min-width: 500px) {
+        margin-top: 0.8rem;
+        display: inline-block;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+    }
+
 `
 
 export const SearchBar = styled.input`
@@ -41,7 +67,7 @@ export const SearchBar = styled.input`
     font-size: 1em;
     font-weight: 400;
     line-height: 1.5;
-    margin: 0rem;
+    margin: 0;
     padding: 0.6rem 0rem 0.6rem 1.8rem;
     opacity: 1;
     color: black;
@@ -60,7 +86,7 @@ export const SearchBar = styled.input`
     font-size: 1em;
     font-weight: 400;
     line-height: 1.5;
-    margin: 0rem;
+    margin: 0;
     padding: 0.6rem 0rem 0.6rem 1.8rem;
     opacity: 1;
     color: black;
@@ -74,12 +100,31 @@ export const SearchBar = styled.input`
     }
 }
 `
+export const CenterContainer = styled.div`
+    height: 100vh;
+    max-width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
 
 export const MainContainer = styled.div`
     margin: 2rem 0.2rem;
     max-width: 100%;
 `
 
+export const NavigationMenu = styled.div`
+    margin: 1.2rem 0.2rem 0rem;
+    font-weight: 400;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+`
 
 export const ALbumListItem = styled.li`
     margin: 0.8rem 0rem;
@@ -87,25 +132,58 @@ export const ALbumListItem = styled.li`
     font-weight: 400;
 `
 
-export const ImageGridContainer = styled.div`
+export const ItemGridContainer = styled.div`
+    @media only screen and (max-width: 500px) {
+        display: grid;
+        max-width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 2rem 0.2rem;
+    }
+    @media only screen and (min-width: 500px) {
+        display: grid;
+        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 2rem 0.2rem;
+    }
+    @media only screen and (min-width: 900px){
+        display: grid;
+        max-width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 2rem 0.2rem;
+    }
+    @media only screen and (min-width: 1100px){
         display: grid;
         max-width: 100%;
         grid-template-columns: repeat(4, 1fr);
         margin: 2rem 0.2rem;
+    }
+`
+
+export const ImageGridContainer = styled.div`
         @media only screen and (max-width: 500px) {
             display: grid;
+            justify-items: center;
             max-width: 100%;
             grid-template-columns: repeat(1, 1fr);
             margin: 2rem 0.2rem;
         }
         @media only screen and (min-width: 500px) {
             display: grid;
+            justify-items: center;
             max-width: 100%;
             grid-template-columns: repeat(2, 1fr);
             margin: 2rem 0.2rem;
         }
         @media only screen and (min-width: 900px){
             display: grid;
+            justify-items: center;
+            max-width: 100%;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 2rem 0.2rem;
+        }
+        @media only screen and (min-width: 1100px){
+            display: grid;
+            justify-items: center;
             max-width: 100%;
             grid-template-columns: repeat(4, 1fr);
             margin: 2rem 0.2rem;
@@ -149,9 +227,20 @@ export const GridImage = styled.img`
         margin: 0.4rem;
         border-radius: 5px;
     }
-    @media only screen and (min-width: 768px){
+    @media only screen and (min-width: 900px){
         max-width: 250px;
         margin: 0.4rem;
         border-radius: 5px;
+    }
+`
+
+export const AssetImage = styled.img`
+    @media only screen and (max-width: 500px) {
+        height: 18rem;
+        width: 18rem;
+    }
+    @media only screen and (min-width: 500px) {
+        height: 20rem;
+        width: 20rem;
     }
 `

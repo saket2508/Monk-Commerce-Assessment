@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import HomePage from "../pages/HomePage"
 import AlbumPage from "../pages/AlbumPage"
 import GalleryPage from "../pages/GalleryPage"
+import NotFound from "../pages/NotFound"
 
 export default function AppRoutes(){
     return(
@@ -19,6 +20,7 @@ export default function AppRoutes(){
                 <Route exact path="/">
                     <Redirect to="/users"/>
                 </Route>
+                <Route component = {NotFound}/>
             </Switch>
         </Router>
     )

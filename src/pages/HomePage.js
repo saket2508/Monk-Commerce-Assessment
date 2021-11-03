@@ -1,31 +1,59 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Container, 
-    ImageGridContainer, 
+    ItemGridContainer, 
     Heading, 
     IconContainer,
     Icon,
     SearchContainer, 
     SearchBar, 
     CardWrapper, 
-    CustomLink,
     UserCardList } from '../styles';
+import Error from './Error';
+import Loading from './Loading';
 
 
-export default function HomePage() {
+const HomePage = () => {
 
     const [ dataUsers, setDataUsers ] = useState([])
+    const [ error, setError ] = useState(false)
+    const [ loading, setLoading ] = useState(true)
+    const [ searchTerm, setSearchTerm ] = useState('')
 
     useEffect(() => {
+        if(error){
+            return
+        }
         // get the list of users
         async function getUsers(){
-            const res = await fetch('https://jsonplaceholder.typicode.com/users')
-            const listUsers = await res.json()
-            setDataUsers(listUsers)
+            try {
+                const res = await fetch('https://jsonplaceholder.typicode.com/users')
+                if(!res.ok){
+                    throw Error
+                }
+                const listUsers = await res.json()
+                setDataUsers(listUsers)
+                setLoading(false)
+            } catch (err) {
+                setError(true)
+                setLoading(false)
+                console.log(err.message)
+            }
         }
         getUsers()
-    }, [])    
+    }, [error])    
 
+    if(error){
+        return(
+            <Error/>
+        )
+    }
+
+    if(loading){
+        return(
+            <Loading/>
+        )
+    }
 
     return (
         <Container>
@@ -42,32 +70,37 @@ export default function HomePage() {
                 </IconContainer>
                 <SearchBar
                     placeholder="Search any user"
+                    value = {searchTerm}
+                    onChange = {e => setSearchTerm(e.target.value)}
                 />
             </SearchContainer>
-            <ImageGridContainer>
-                {dataUsers.map((obj, id) => {
+            <ItemGridContainer>
+                {dataUsers.
+                    filter(object => object.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                    .map((obj, id) => {
                     return(
                         <CardWrapper key = {id}>
                             <UserCardList>
                                 <li>{obj.id}</li>
-                                <li>{obj.name}</li>
+                                <li>
+                                    <Link style = {{
+                                        color: 'gray',
+                                        fontWeight: 500
+                                    }} to={{pathname: `/albums/${obj.id}`, state: { username: obj.name }}}>
+                                        {obj.name}
+                                    </Link>
+                                </li>
                                 <li>{obj.username}</li>
                                 <li>{obj.email}</li>
                                 <li>{obj.phone}</li>
                                 <li>{obj.company.name}</li>
-                                <li>
-                                    <Link style={{
-                                        color: '#7c4dff',
-                                        fontWeight: 400
-                                    }} to={`/albums/${obj.id}`}>
-                                        SEE ALBUMS
-                                    </Link>
-                                </li>
                             </UserCardList>
                         </CardWrapper>
                     )
                 })}
-            </ImageGridContainer>
+            </ItemGridContainer>
         </Container>
     )
 }
+
+export default withRouter(HomePage)
