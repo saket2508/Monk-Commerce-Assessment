@@ -1,6 +1,6 @@
 ## Monk Commerce Assessment
 
-- This repo contains the source code for the task that was given as part of Monk Commerce's front-end intern assessment.
+- This repo contains the source code for a task that was given as part of Monk Commerce's front-end intern assessment.
 
 - A User Gallery app had to built using React and Styled Components that displays a list of random users and their contact info, along with dummy data containing pictures they own.
 
