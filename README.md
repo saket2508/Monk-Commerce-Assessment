@@ -8,13 +8,13 @@
 
 ### Screenshots
 
-<img src="/assets/home.png"/>
+<img src="src/assets/home.png"/>
 <br/> 
-<img src="/assets/albums.png"/>
+<img src="src/assets/albums.png"/>
 <br/>
-<img src="/assets/gallery.png"/>
+<img src="src/assets/gallery.png"/>
 <br/>
-<img src="/assets/search.png"/>
+<img src="src/assets/search.png"/>
 <br/>
 
 ### Installation
@@ -28,8 +28,8 @@
 
 ### Running Locally
 
-- from the root directory of the app, run the following command to start the dev server.
+- from the root directory of the app, run the following command in your terminal to start the dev server.
 ```
     npm start
 ```
-- It should now run on `localhost:3000`
+- It should start running on `localhost:3000`
