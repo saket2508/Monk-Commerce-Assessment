@@ -1,12 +1,35 @@
 ## Monk Commerce Assessment
 
-### TODOS
+- This repo contains the source code for a task that was given as part of Monk Commerce's front-end intern assessment.
 
-- [x] Create Home, Album and Gallery pages
-- [x] Create responsive grids for contact info, albums and images
-- [x] Implement Search
-- [x] Display the number of pictures in the album, and the current album/user.
-- [x] Add some kind of loading animation that shows up while data is being fetched(lazy loading).
-- [x] Add navigation between pages(Navigation menu)
-- [x] Error and Not Found pages.
-- [x] Custom Font to make the UI look better
+- A User Gallery app had to built using React and Styled Components that displays a list of random users and their contact info, along with dummy data containing pictures they own.
+
+- It has been deployed to Netlify, and is live [here](https://usergallery-saket.netlify.app)
+
+### Screenshots
+
+<img src="/assets/home.png"/>
+<br/> 
+<img src="/assets/albums.png"/>
+<br/>
+<img src="/assets/gallery.png"/>
+<br/>
+<img src="/assets/search.png"/>
+<br/>
+
+### Installation
+
+- Clone and Install Dependencies locally.
+```
+    git clone https://github.com/saket2508/Monk-Commerce-Assessment.git
+    cd Monk-Commerce-Assessment
+    npm install
+```
+
+### Running Locally
+
+- from the root directory of the app, run the following command to start the dev server.
+```
+    npm start
+```
+- It should now run on `localhost:3000`
