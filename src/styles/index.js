@@ -44,18 +44,19 @@ export const Icon = styled.div`
 `
 
 export const SearchContainer = styled.div`
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 400px){
         margin-top: 0.8rem;
         display: block;
         position: relative;
         text-align: center;
     }   
-    @media only screen and (min-width: 500px) {
+    @media only screen and (min-width: 400px) {
         margin-top: 0.8rem;
         display: inline-block;
-        margin-left: 50%;
+        left: 50%;
         transform: translateX(-50%);
         position: relative;
+        max-width: 100%;
     }
 
 `
@@ -133,14 +134,22 @@ export const ALbumListItem = styled.li`
 `
 
 export const ItemGridContainer = styled.div`
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 400px) {
         display: grid;
         max-width: 100%;
         grid-template-columns: repeat(1, 1fr);
         margin: 2rem 0.2rem;
     }
-    @media only screen and (min-width: 500px) {
+    @media only screen and (min-width: 400px) {
         display: grid;
+        justify-items: center;
+        max-width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 2rem 0.2rem;
+    }
+    @media only screen and (min-width: 600px) {
+        display: grid;
+        justify-items: center;
         max-width: 100%;
         grid-template-columns: repeat(2, 1fr);
         margin: 2rem 0.2rem;
@@ -191,6 +200,7 @@ export const ImageGridContainer = styled.div`
 `
 
 export const CardWrapper = styled.div`
+@media only screen and (max-width: 400px) {
     overflow: hidden;
     padding: 0.7rem;
     max-width: 300px;
@@ -201,6 +211,31 @@ export const CardWrapper = styled.div`
     display: flex;
     justify-content: center;
     margin: 0.4rem;
+}
+@media only screen and (min-width: 400px) {
+    overflow: hidden;
+    padding: 0.7rem;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    display: flex;
+    justify-content: center;
+    margin: 0.4rem;
+}
+@media only screen and (min-width: 600px) {
+    overflow: hidden;
+    padding: 0.7rem;
+    width: 250px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    display: flex;
+    justify-content: center;
+    margin: 0.4rem;
+}
 `
 
 export const AlbumCardList = styled.ul`
